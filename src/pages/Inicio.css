@@ -1,0 +1,25 @@
+.cuerpa {
+    background-color: #7DE5ED;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.tit {
+    display: inline;
+}
+
+.logoHotel {
+    height: 70px;
+    width: auto;
+}
+
+.navbar {
+    display: block;
+}
+
+.block{
+    display: block;
+}

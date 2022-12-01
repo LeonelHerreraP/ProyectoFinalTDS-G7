@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import './Login.css';
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 export const Login = () => {
