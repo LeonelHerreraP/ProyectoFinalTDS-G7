@@ -1,5 +1,6 @@
 import "./Inicio.css";
 import { useEffect, useState } from 'react';
+import NavBar from '../componentes/NavBar';
 
 export function Inicio() {
 
@@ -7,7 +8,7 @@ export function Inicio() {
 
     useEffect(() => {
         const fecthReservas = async () => {
-            const response = await fetch('https://localhost:7071/api/Reversaciones/Listar');
+            const response = await fetch('https://localhost:7071/api/Reversaciones/ListarReservacionCurso');
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -25,47 +26,14 @@ export function Inicio() {
 
     return (
         <div>
-            <nav class="navbar bg-light fixed-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Hotel Name</a>
-                    <img className="logoHotel" src="imagen/Logo.png" alt="logo" />
-                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hotel Name</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="">Inicio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/reservaciones">Reservaciones</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Reservaciones en curso</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Habitaciones</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Inventario</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <NavBar />
             <div className="cuerpa">
                 <div className="card block" style={{ width: "70rem" }}>
                     <div className="card-header">
                         Reservaciones en Curso
                     </div>
                     <ul className="list-group list-group-flush">
-                        {Reservas.map((reserva, i) => reserva.estado == "En Curso" && (
+                        {Reservas.map((reserva, i) => (
                             
 
                             <li className="list-group-item">
@@ -81,11 +49,7 @@ export function Inicio() {
 
                     </ul>
                 </div>
-
             </div>
-
-
-
         </div>
 
     );
